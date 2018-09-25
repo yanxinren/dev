@@ -31,7 +31,6 @@ public class BinarySearch {
                 max = mid - 1;
                 mid = (min + max) / 2;
             }
-
             if (arr[mid] < num) {// num 在右边
                 min = mid + 1;
                 mid = (min + max) / 2;

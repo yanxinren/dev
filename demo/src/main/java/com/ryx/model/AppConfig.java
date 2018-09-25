@@ -13,8 +13,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
     @Bean(value = "user")
-    public User initUser() {
-        User user = new User();
+    public UserBO initUser() {
+        UserBO user = new UserBO();
         user.setId(11L);
         user.setUsername("me");
         user.setNote("11");
