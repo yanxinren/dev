@@ -3,8 +3,11 @@ package com.ryx.others.java8;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.core.convert.converter.Converter;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.stream.Collectors;
 
 /**
@@ -186,5 +189,42 @@ public class Article {
         System.out.println("JAVA8查所有：" + allJavaArticles.toString());
         System.out.println("JAVA8：" + firstJavaArticleJava8.toString());
 
+
+        Converter<String, Integer> converter = Integer::valueOf;
+        Integer converted = converter.convert("123");
+        System.out.println(converted); // 123
+        PersonFactory<Person> personFactory = Person::new;
+        Person creat = personFactory.creat("张三", "男", 18);
+        System.out.println("可以利用接口实现简单工厂(实例化的person的值为)：" + creat);
+
+        AtomicInteger atomicInteger = new AtomicInteger();
+
+        //   AtomicReferenceArray
+        //  filter 过滤
+
+        List<String> stringCollection = new ArrayList<>();
+        stringCollection.add("ddd2");
+        stringCollection.add("aaa2");
+        stringCollection.add("bbb1");
+        stringCollection.add("aaa1");
+        stringCollection.add("bbb3");
+        stringCollection.add("ccc");
+        stringCollection.add("bbb2");
+        stringCollection.add("ddd1");
+
+        stringCollection
+                .stream()
+                .filter((s) -> s.startsWith("a"))
+                .forEach(System.out::println);
+// "aaa2", "aaa1"
+
+
+        /**
+         * 删除集合中符合条件的成员，empty集合也可以，但是null就炸啦。
+         */
+
+
     }
+
+
 }
