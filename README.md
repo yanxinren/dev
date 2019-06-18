@@ -2,10 +2,6 @@
 
 ------
 
-- homepage-api : 接口服务 --app端调用的接口
-- homepage-common : 首页后台的公共包
-- homepage-manager : 首页后台管理服务
-
 ```
 项目结构图案列
     parent          --项目根目录
